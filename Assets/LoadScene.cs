@@ -6,17 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
-    public TMP_InputField playerName;
-    // Start is called before the first frame update
-    void Start()
+    public TMP_InputField nameInput;
+
+    public void StartGame()
     {
-        PlayerPrefs.SetString("PlayerName", playerName.text); // lưu tên người dùng vào PlayerPrefs
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        string playerName = nameInput.text;
+        PlayerPrefs.SetString("PlayerName", playerName);
     }
     public static void OpenScene()
     {
