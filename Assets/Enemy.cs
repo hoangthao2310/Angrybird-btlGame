@@ -12,22 +12,27 @@ public class Enemy : MonoBehaviour
     public GameObject nextGameObj;
 
     public int scoreMin;
-    
+
 
     //Xu ly va cham
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.relativeVelocity.magnitude >= defend)
+        if (collision.relativeVelocity.magnitude >= defend)
         {
             Destroy(gameObject, 0.1f);
             score.diem += 100;
             GameOver();
+            if (score.diem > score.highScore)
+            {
+                score.highScore = score.diem;
+                PlayerPrefs.SetInt("HighScore", score.diem);
+            }
         }
         else
         {
             defend -= collision.relativeVelocity.magnitude;
         }
-        
+
     }
     void GameOver()
     {
