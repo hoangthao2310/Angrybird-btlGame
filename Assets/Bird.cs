@@ -29,7 +29,7 @@ public class Bird : MonoBehaviour
     private void OnMouseUp()
     {
         Vector3 vectorForce = InitialPos - transform.position;
-        GetComponent<Rigidbody2D>().AddForce(vectorForce * 250);
+        GetComponent<Rigidbody2D>().AddForce(vectorForce * 300);
         GetComponent<Rigidbody2D>().gravityScale = 1;
     }
     public void ResetGame()
